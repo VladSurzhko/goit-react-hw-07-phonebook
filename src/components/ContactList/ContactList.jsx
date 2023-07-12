@@ -3,7 +3,8 @@ import css from "../Phonebook/phonestyle.module.css";
 
 // import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { deleteUser } from "redux/contactSlice";
+import { deleteContact } from "redux/creatThunk";
+
 
 const ContactList = ({contacts, filter}) => {
 
@@ -11,7 +12,7 @@ const ContactList = ({contacts, filter}) => {
 
 
   const handleDeleteContact = (contactId) => {
-    dispatch(deleteUser(contactId));
+    dispatch(deleteContact(contactId));
   };
 
   const filteredContacts = contacts.filter((contact) =>

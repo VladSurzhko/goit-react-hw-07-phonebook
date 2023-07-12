@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, selectContacts } from "redux/contactSlice";
+import { addContact } from "redux/creatThunk";
+import { selectContacts } from "redux/contactSlice";
+
 
 import css from "../Phonebook/phonestyle.module.css";
 
@@ -23,7 +25,7 @@ import css from "../Phonebook/phonestyle.module.css";
       return;
     }
 
-    dispatch(addUser(name, number));
+    dispatch(addContact(name, number));
     setName("");
     setNumber("");
   };

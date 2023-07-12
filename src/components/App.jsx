@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import css from "../components/Phonebook/phonestyle.module.css";
 import ContactForm from "components/ContactForm/ContactForm.jsx";
 import Filter from "components/Filter/Filter.jsx";
 import ContactList from "components/ContactList/ContactList";
 import { filterUser } from "redux/filterSlice";
 import { useSelector, useDispatch } from 'react-redux';
-import { addUser, deleteUser, selectFilter, selectContacts } from "redux/contactSlice";
+import {selectFilter, selectContacts } from "redux/contactSlice";
+import { addContact, deleteContact, fetchContacts } from "redux/creatThunk";
 
 const Phonebook = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const handleAddContact = (name, number) => {
     const errorContact = contacts.find((contact) => contact.name === name);
@@ -20,11 +25,11 @@ const Phonebook = () => {
       return;
     }
 
-    dispatch(addUser({ name, number }));
+    dispatch(addContact({ name, number }));
   };
 
   const handleDeleteContact = (contactId) => {
-    dispatch(deleteUser(contactId));
+    dispatch(deleteContact(contactId));
   };
 
 
