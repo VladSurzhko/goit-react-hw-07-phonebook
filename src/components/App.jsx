@@ -5,7 +5,7 @@ import Filter from "components/Filter/Filter.jsx";
 import ContactList from "components/ContactList/ContactList";
 import { filterUser } from "redux/filterSlice";
 import { useSelector, useDispatch } from 'react-redux';
-import {selectFilter, selectContacts } from "redux/contactSlice";
+import {selectFilter, selectContacts } from '../redux/selectors'
 import { addContact, deleteContact, fetchContacts } from "redux/creatThunk";
 
 const Phonebook = () => {

@@ -38,8 +38,8 @@ export const contactSlice = createSlice({
 });
 
   export const contactsReducer = contactSlice.reducer;
-  export const selectContacts = state => state.contacts.items;
-  export const selectFilter = state => state.filter;
+  // export const selectContacts = state => state.contacts.items;
+  // export const selectFilter = state => state.filter;
 
 
 
